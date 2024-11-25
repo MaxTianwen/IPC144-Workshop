@@ -1,11 +1,108 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #7
-Full Name  : 
-Student ID#: 
+Full Name    : Tianwen Wang
+Student ID#: 151583226
+Email            : twang118@myseneca.ca
+Section        : ZAA
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
 shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
-///////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////*/
+
+
+1.
+a) Structure Declaration
+struct PlayerInfo
+{
+    int lives;
+    char symbol;
+    int treasures;
+    int pastPos[MAX_PATH_LEN];
+};
+
+struct GameInfo
+{
+    int movesRemaining;
+    int pathLen;
+    int bombPos[MAX_PATH_LEN];
+    int treasurePos[MAX_PATH_LEN];
+};
+
+b) Varaible Declaration
+{
+    int i, j;
+    int valid, gameOver;
+    int moveSteps;
+}
+
+Without using structures, we have to declare all the variables and arrays one by one as follows:
+{
+    char symbol;       // Player's symbol
+    int lives, treasures, moveSteps;   // Player statistics
+    int pathLen;   // Number of positions
+
+    int i, j;     // Iterators
+    int valid, gameOver;   // Flags
+
+    // Parallel arrays for history, bomb positions, and treasure positions
+    int pastPos[MAX_PATH_LEN];
+    int bombPos[MAX_PATH_LEN];
+    int treasurePos[MAX_PATH_LEN];
+}
+
+
+
+
+2.
+Parallel Arrays:
+{
+    int pastPos[MAX_PATH_LEN]; // Player's movement history
+    int bombPos[MAX_PATH_LEN]; // Bomb positions in the path 
+    int treasurePos[MAX_PATH_LEN]; // Treasure positions in the path
+}
+
+Relationship:
+The index of three parallel arrays is synchronized, meaning they correspond to the same position
+in the game path when the iterator "i" is assigned, representing the info of each position.
+
+Contribution:
+1) Easy to process.  Once we find the index of the element that matches one of the specified position's 
+   history/bomb/treasure information, we also have the index and information of the other two.
+2) Simplify the logic.  We are able to deal with all kinds of information within one loop because they share
+   the same index.
+3) Data accessibility.  Since each array represents a specific aspect of the game state at a given position, 
+   accessing the data of all three arrays at a particular position is easy using only one For Loop.
+4) Easy to debug.  Once there are some errors in the arrays, it would be easy to locate and fix.
+5) Improve maintainability and extensibility. If new elements are required to be added to the game in the 
+   future, they can be incorporated by adding other parallel arrays without modifying too much code.
+
+
+
+
+3.
+Line number: 270
+First deepest nested statement: printf("%c", BOTH);
+
+First, it enters the main function. At line 246, if the reverse of the flag "gameOver" is true, the code enters the
+While loop to display the game board. At line 260, if the iterator < game.pathLen (user input value), it enters
+the For loop to determine the position status. At line 262, if player.pastPos[i] == 1, which means player has been
+to this position before, and it enters the "Else" alternative path. At line 268, if this position has both bomb and 
+treasure, the line 270 statement will be executed, and the symbol "&" will be displayed at the current position 
+on the screen.
+
+Logic Process:
+65 | Entry point to the application
+...
+246|   WHILE (!gameOver)? ==> True
+...
+260|        FOR: i = 0; i < game.pathLen ==> True       // game.pathLen is an user input value
+262|            IF player.pastPos[i] == 0? ==> False
+...
+266|            ELSE:
+268|            IF (game.bombPos[i] && game.treasurePos[i]) ? ==> True
+270|                DISPLAY: "&";       // Position that has both treasure and bomb
+
+

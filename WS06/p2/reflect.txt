@@ -1,12 +1,78 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #6
-Full Name  : 
-Student ID#: 
+Full Name    : Tianwen Wang
+Student ID#: 151583226
+Email            : twang118@myseneca.ca
+Section        : ZAA
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
 shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
+
+
+1. 
+We call them "Parallel Arrays".  In parallel arrays, the elements with the same index contain information referring 
+to the same object (entity), making it easy to manage and process.
+
+In WS02, we declared the three parallel arrays (cost[], priority[], and financeOpt[]) to represent three different 
+properties of items; more specifically, each index in the arrays corresponds to different properties of the same 
+item.  After receiving the user's input of item information, we need to print a summary table containing the item 
+number and three item properties. 
+
+In that way, we can simply get the correct output by using a for loop since the item ID and its properties correspond 
+with the same index (See the table below).
+
+Item Priority Financed Cost
+---- -------- -------- -----------
+1 		1	 n 	39030.15
+2		3	 y 1200000.00
+3 		2 	 n   350500.25
+4 		1 	 y     15500.75
+5 		3	 n 	  6575.55
+---- -------- -------- -----------
+
+
+2. 
+For Loop is the most convenient one with Arrays.
+
+Example: 
+	totalCost = 0;
+	for (i = 0; i < itemsNum; ++i)
+	{
+		totalCost += cost[i];
+		printf("%3d  %5d    %5c    %11.2lf\n", i + 1, priority[i], financeOpt[i], cost[i]);
+	}
+
+Rewrite the loop with While:
+	totalCost = 0, i = 0;
+	while (i < itemsNum)
+	{
+		totalCost += cost[i];
+		printf("%3d  %5d    %5c    %11.2lf\n", i + 1, priority[i], financeOpt[i], cost[i]);
+		++i;
+	}
+
+If we use While instead of For, we need to do two more things:
+	1) Initialize the iterator outside before the loop.
+	2) Manually modify the iterator after each iteration.
+
+Thus, using For Loop for Arrays is more convenient.
+
+
+3. 
+As VS Studio is an IDE, once we have syntactic errors, VS Studio will prompt those errors with red wavy underlines
+at each error place as well as error descriptions in the Error List. In this case, we are able to locate and correct all 
+syntactic errors conveniently.
+
+Semantic errors:
+Those errors can be fixed in four steps:
+	1) Run the code, input values, and check whether we get the correct results. If some of the output is incorrect,
+	     locate the code section that probably causes the error based on the output.
+	2) Set necessary break points in that section on the very left side in the VS Studio interface, running the debug
+	     window, monitoring and checking the variables, input values, and output values step by step until the exact 
+	     problem is found
+	3) Correct the error and repeat the test process until the code runs as expected.
 

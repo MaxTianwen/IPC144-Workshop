@@ -1,8 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #5
-Full Name  : 
-Student ID#: 
+Full Name    : Tianwen Wang
+Student ID#: 151583226
+Email            : twang118@myseneca.ca
+Section        : ZAA
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -10,3 +12,35 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
 
+
+1.
+No. In order to ensure the correct value is correct, an infinite loop is required until the user types the correct
+input. However, the "for" iteration construct is normally appropriate when we know the exit condition and how 
+many times we want to loop.
+
+By the way, despite "for (;;)" is also for infinite looping, we need to use special expressions like "break" to end the 
+loop, which breaks the "SESE" rule.
+
+
+2.
+We can use either "if/else if" or "switch". I selected "switch" because of the following reasons:
+
+	1) It increases the readbility when multiple values of one variable are required to be checked.
+	2) It is easier to maintain compared to multiple "if/else if" statements.
+	3) It is more efficient for the compiler to read, compile, and execute.
+
+
+3.
+In the w5p2, we defined "MIN_YEAR", "MAX_YEAR", and "LOG_DAYS" by using macros. The advantages:
+
+	1) Instead of using "magic numbers", defining macros at the beginning make the code more readable and
+             understandable because readers can have a glimpse of all the important constraints, such as the "MIN_YEAR"
+             and "MAX_YEAR" before actually getting into the coding part.
+	2) It is easier to maintain / update for further development. If we use macros, we only need to change
+	     the "YEARS" and "LOG_DAYS" at the very beginning when the code needs to be updated; otherwise, 
+	     we need to modify all the "magic values" written in the code.
+	3) It provides a reminder that these macros are important global values/constraints. Therefore, it is required to
+	     consider seriously before modifying the code.
+	4) It is easier to debug and test. Compared with "magic numbers" in the coding part, macros are much
+	     easier to track and inspect during the debugging and testing process.
+	5) It runs faster than using variables, because macros will just be replaced with constant literals.

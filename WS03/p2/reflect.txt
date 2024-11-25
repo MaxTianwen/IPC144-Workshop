@@ -1,14 +1,40 @@
 ///////////////////////////////////////////////////////////////////////////
                               Reflection
                           Workshop - #3 (P2)
-Full Name  : 
-Student ID#: 
-Email      : 
-Section    : 
+Full Name    : Tianwen Wang
+Student ID#: 151583226
+Email            : twang118@myseneca.ca
+Section        : ZAA
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
 shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
+
+1. 
+I created 12 variables. In part 2, as 9 of the 12 are "coffee-related" variables that have similar names, it is important
+to organize and group the declared variables. In this case, it not only significantly increases the readability but also 
+avoids name conflicts. Meanwhile, it makes the code easier to maintain.
+
+
+2.
+Expression: dailyServ > 0 && dailyServ < 5 && bagWtCoffee1 == 250
+
+Relational: >, <, ==
+Logical: &&
+
+Since the relational operators have higher priority than logical expressions, the relational expressions will be evaluated
+first. Moreover, ">" and "<"have even higher precedence than "==". Therefore, the expressions "dailyServ > 0" and
+"dailyServ < 5" will first be evaluated from left to right. After evaluating "bagWtCoffee1 == 250", the two logical
+expressions will be determined. Lastly, the expression will return 0 or 1 based on the evaluated result.
+
+
+3.
+DeMorgan's law is a rule that can simplify some logical expressions. 
+
+The expression "dailyServ > 0 &&  dailyServ < 5 && bagWtCoffee1 == 250" can be also written in another way: 
+"!(dailyServ < 0) &&  !(dailyServ > 5) && bagWtCoffee1 == 250". 
+
+By using deMorgan's Law, it can be rewritten to "!(dailyServ < 0 || dailyServ > 5) && bagWtCoffee1 == 250".
 

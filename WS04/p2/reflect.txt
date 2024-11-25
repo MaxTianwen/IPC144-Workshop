@@ -1,12 +1,64 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #4
-Full Name  : 
-Student ID#: 
+Full Name    : Tianwen Wang 
+Student ID#: 151583226
+Email            : twang118@myseneca.ca
+Section        : ZAA
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
 shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
+
+
+1.
+CONSTRUCT
+	while (condition)
+	{
+		...
+	}
+Since the condition will be checked before starting the loop, the loop might not be executed if the
+condition is false.  So, if we need to check the user's input to determine before entering a loop, it is
+better to use "while".
+
+	do {
+		...
+	} while (condition)
+The code in the loop is executed first, then the condition is evaluated. If the condition is false, the 
+loop will still be conducted at least once.  Therefore, if we need to get the user's input, do the loop
+body at least once, and check the input value at the end of each loop, it is appropriate to use "do/while".
+
+
+2.
+In w4p1, we are required to get input from user and use if/else if to determine what kind of iteration should
+be used based on the input value.
+
+e.g. 
+if (loopType == 'D')
+{
+	...
+}
+else if (loopType == 'W')
+{
+	...
+}
+
+Here, using the "if/else if" ensures that once a condition is true, the other following conditions will not be
+checked; however, if we use a set of "if" statements instead, the input value will be checked by all conditions,
+even if they are true in all former "if" statements.
+
+
+3.
+In order to enhance the readability and maintainability of the code, it is required to follow the following rules:
+
+	1. Decomposite the requirements into several submissions and logically group them into different blocks.
+	2. Use self-descriptive names for variables, which makes your code easier to comprehend.
+	3. Add indentations correctly in each code section/block, especially when nesting structures exist.
+	4. Add comments to specific statements/blocks/sections for clarification.
+	5. Follow the "SESE" principle for loops. Using "flags" instead of jumping expressions, such as "break", 
+	    "continue", "goto".
+	6. Avoid exceeding the line length limit.
+	7. Add spaces where it is needed.
 

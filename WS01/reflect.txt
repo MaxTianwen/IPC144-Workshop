@@ -2,10 +2,10 @@
 
                               Reflection
                              Workshop - #1
-Full Name  : 
-Student ID#: 
-Email      : 
-Section    : 
+Full Name   :  Tianwen Wang
+Student ID#:  151583226
+Email          :  twang118@myseneca.ca
+Section       :  ZAA
 
 Authenticity Declaration:
 
@@ -14,3 +14,11 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ###########################################################################
 
+A1. 
+I only have a bit of Python programming experience. I knew that C is a relatively low-level language that runs very fast. However, I think it might also be challenging for beginners to master.
+
+A2.
+There are three major steps. At first, the original C text file will be loaded by the compiler, and then it will be converted into an object file with the“.o” or “.obj” suffix, which contains machine-level commands and is of course machine-readable. Finally, the linker will generate the final executable file based on the object file, in which the code is presented in binary form.
+
+A3.
+I am really interested in programming and have always been a self-motivated student. So, I would like to gain solid basic knowledge about C in the course as well as become more confident in learning. 

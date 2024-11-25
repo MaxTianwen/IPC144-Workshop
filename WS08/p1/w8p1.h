@@ -1,9 +1,9 @@
 /*/////////////////////////////////////////////////////////////////////////
                           Workshop - #8 (P1)
-Full Name  : 
-Student ID#: 
-Email      : 
-Section    : 
+Full Name  : Tianwen Wang
+Student ID#: 151583226
+Email      : twang118@myseneca.ca
+Section    : ZAA
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -13,8 +13,21 @@ piece of work is entirely of my own creation.
 
 
 // ----------------------------------------------------------------------------
-// structures
+// macro's
+# define MAX_PRODUCTS 3
+# define GRAMS_PER_SERVING 64
 
+
+
+// ----------------------------------------------------------------------------
+// structures
+struct CatFoodInfo
+{
+    int sku;
+    double price;
+    int calPerServing;
+    double weightLbs;
+};
 
 
 
@@ -23,23 +36,24 @@ piece of work is entirely of my own creation.
 
 // 1. Get user input of int type and validate for a positive non-zero number
 //    (return the number while also assigning it to the pointer argument)
-
+int getIntPositive(int* ptrIntNum);
 
 // 2. Get user input of double type and validate for a positive non-zero number
 //    (return the number while also assigning it to the pointer argument)
-
+double getDoublePositive(double* ptrDblNum);
 
 // 3. Opening Message (include the number of products that need entering)
-
+void openingMessage(const int numProducts);
 
 // 4. Get user input for the details of cat food product
-
+struct CatFoodInfo getCatFoodInfo(const int seqProduct);
 
 // 5. Display the formatted table header
-
+void displayCatFoodHeader(void);
 
 // 6. Display a formatted record of cat food data
-
+void displayCatFoodData(const int sku, const double* ptrPrice, const double* ptrWeightLbs,
+                        const int calPerServing);
 
 // 7. Logic entry point
-
+void start(void);

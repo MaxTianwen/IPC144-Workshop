@@ -1,11 +1,48 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #8
-Full Name  : 
-Student ID#: 
+Full Name  : Tianwen Wang
+Student ID#: 151583226
+Email      : twang118@myseneca.ca
+Section    : ZAA
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
 shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
+
+1.
+Prototype: double convertLbsKg(const double* ptrWeightLbs, double* ptrWeightKg);
+    1) Returning by "return" statement (return by value).  The function receives two double-floating pointers, dereferencing and calculating the result, returning the variable in the return statement.
+    2) Returning by assigning the value to the pointer(return by address).  The function calculates the result, directly assigning the value to the 2nd argument(pointer) by dereferencing if the address of the pointer is not NULL.
+
+Two separated functions:
+    1) double convertLbsKgByReturn(const double* ptrWeightLbs);
+    2) double convertLbsKgByAddress(const double* ptrWeightLbs, double* ptrWeightKg);
+
+
+2.
+1) convertLbsKg()
+    High cohesion: It only focuses on a single mission to convert the received weight in pounds to kg.
+    Loose coupling: It only transfers information based on the two input pointer arguments and the return value(in two ways).  Therefore, this function works independently without transferring data to other modules while operating.
+
+2) openingMessage()
+    High cohesion: It is only responsible for displaying the opening message for part 1, meaning it focuses only on this specific task.
+    Loose coupling: It only receives one argument from the user input and displays the output message, which means it only interacts with the pre-defined output function and has high independence.
+
+3) displayFinalAnalysis()
+    High cohesion: This function only outputs the analysis result (specifying the cheapest option by displaying messages). No other tasks will be done.
+    Loose coupling: It only generates the final messages, which do not rely on other modules, controlling the process on its own.
+
+
+3.
+You used a header (.h) file for the first time in this workshop. The header file also had a source code file (.c) to complement it where the function definitions were placed. What are your thoughts on using this design and approach to manage the development of the application? Provide specific references to the workshop to help you communicate your remarks.
+
+1) Increase modularity, readability and understandness.  A (.h) file can be #include by multiple (.c) files.  In this case, we can simply classify and divide the project into small modules (main.c and w8p2.c).  Moreover, since the declarations, structures, and function prototypes are in the (.h) file, it is easy to have a rough understanding by browsing the (.h) file without reading all the (.c) files in detail.  For instance, in part 1 of this workshop, we can simply know all the essential functions, macros, and structures and their properties that will be used to get input as well as output the "CatFoodInfo".
+
+2) Avoid repeating.  By using the (.h) file, if we need to reference the corresponding macros and structures in multiple (.c) files, we only have to declare them in the (.h) file instead of declaring them in each (.c) file, avoiding repeats.  In part 2, we used the (w8p2.h) and #include it both in the two (.c) files (main.c and w8p2.c).  Thus, the macros and structures are used in the (.h) file.
+
+3）Confidentiality.  In some cases, if we would not like to reveal the source code of a project, we could provide the (.h) file so that others would know how to call the functions in their own projects.  Like in this project, if we want to get a positive integer user input, we do not need to look into the (.c) file and understand how the function works; instead, we can call the function getIntPositive() with our own arguments by only having the (.h) file
+
+4) Easy to maintain and extend.  Suppose it is required to modify the implementation part of the project in the future. In that case, we usually only need to edit the specific (.c) file instead of the (.h) file, which significantly improves the maintainability and extendability.  In this case, other parts that depend on the module would not be affected.  For example, if we add something in the w8p2.c file, the main.c will work without as usual.

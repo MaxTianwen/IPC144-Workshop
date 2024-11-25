@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////
                               Reflection
                           Workshop - #2 (P2)
-Full Name  : 
-Student ID#: 
-Email      : 
-Section    : 
+Full Name    : Tianwen Wang	
+Student ID#: 151583226
+Email            : twang118@myseneca.ca
+Section        : ZAA
 
 Authenticity Declaration:
 
@@ -13,3 +13,57 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
 
+
+1. 
+a) 
+First code snippet: a = 4
+Second code snippet: a = 3
+
+b)
+The difference is caused by using the postfix operator. The postfix ++ will be incremented after use.
+In the second code snippet, the "printf" and postfix are in the same statement. Therefore, the variable 
+"a" will be printed first by "printf" (a = 3), then incremented by 1. However, in the first code snippet,
+"a" will increment by 1 first and then be printed because these are two separate statements.
+
+
+2. 
+Output:
+1. 10.11 = 10.110000 (as cents:1010)
+2. 10.11 = 10.110000 (as cents:1011)
+3. 10.14 = 10.140000 (as cents:1014)
+4. 10.14 = 10.140000 (as cents:1014)
+
+In C, decimals in floating-point numbers are stored in binary form, meaning they have only limited precision.
+Most of the time, it is only possible to keep floating-point values approximately in C, leading to tiny inaccuracy 
+because the number will be rounded by calculating and printing. 
+
+The float-poting values are stored approximately and will be rounded in printf statements. Here, price1 is declared 
+as "float" by adding the suffix "f" with 7 limited decimal places. Therefore, the price1 is stored slightly than 10.11, 
+the expression (int)(price1 * 100) will cast 100 to float type, multiply price1, getting a number also slightly less than
+1011, then (int) will cast the result to an integer, which truncates the decimal part and gets 1010.
+
+In contrast, price2 is a double type, which has much higher accuracy than price1. Hence, the result of the expression 
+(price2 * 100) will be rounded to 1011.000... After casting to an integer, we get the correct cents.
+
+price3 and price4 are stored slightly more than 10.14 in the system. So the expression (int)(price3 * 100) and 
+(int)(price 4 * 100) will both get the result 1014 after casting, calculating and truncating.
+
+
+3. 
+Output:
+1. $0.00
+2. $20
+3. $20.31
+4. $687194767
+
+1. Since money / 100 is an integer division, it is not appropriate to use %.2lf as a format specifier, which is used to
+print a "double" number with two decimals. Hence, it shows the result of $0.00.
+
+2. As (money / 100) is an integer, the decimals after division will be truncated, which is 20. With the %d, the result
+will be printed as 20.
+
+3. (double) money / 100 means the int value "money" will be explicitly promoted to a double type first, then the integer
+value 100 will be implicitly promoted before the division. Therefore, using %.2lf will get a double result = 20.31.
+
+4. As (double) money / 100 gets a double value, using %d as an integer output will get an unexpected error when printing
+the result because of the unmatched types.
